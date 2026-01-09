@@ -90,6 +90,7 @@ func _ready() -> void :
     super ()
     update_type()
     _on_ratio_change(0)
+    update_visible_inputs()
 
 func _process(delta: float) -> void :
     super (delta)
