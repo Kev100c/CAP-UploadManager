@@ -105,80 +105,9 @@ func process(delta: float) -> void :
         for index in slot.size():
             if slot[index-1].file.count < 1:
                 slot[index-1].progress = 0
-        
-    var demand = []
-    var needy = 0
-    var up = upload.count
-    var sum = 0
-    var sumInfection = 0
-    
-    for prio in range(prioLists.size()):
-        if prioLists.size() == 0 || up == 0:
-            continue
-        demand.resize(0)
-        demand.resize(prioLists[prioLists.size()-1-prio].size())
-        for index in range(prioLists[prioLists.size()-1-prio].size()):
-            var slotIndex = prioLists[prioLists.size()-1-prio][index-1]
-            demand[index] = slot[slotIndex].file.production * slot[slotIndex].goal
-            needy +=1
-        var upup = up
-        for n in range(needy):
-            upup -= demand[n]
-        if upup > 0:
-            up -= up - upup
-            for index in range(prioLists[prioLists.size()-1-prio].size()):
-                var slotIndex = prioLists[prioLists.size()-1-prio][index-1]
-                sum += slot[slotIndex].base_value * slot[slotIndex].file.production * slot[slotIndex].multiplier
-                sumInfection += slot[slotIndex].base_infection * slot[slotIndex].file.production
-        else:
-            var percent = up / (up + (-upup))
-            for index in range(prioLists[prioLists.size()-1-prio].size()):
-                var slotIndex = prioLists[prioLists.size()-1-prio][index-1]
-                sum += slot[slotIndex].base_value * slot[slotIndex].file.production * percent  * slot[slotIndex].multiplier
-                sumInfection += slot[slotIndex].base_infection * slot[slotIndex].file.production * percent
-            up = 0
-        needy = 0
-            
-    needy = 0           
-    for prio in range(prioLists.size()):
-        if prioLists.size() == 0:
-            continue
-        for index in range(prioLists[prioLists.size()-1-prio].size()):
-            var slotIndex = prioLists[prioLists.size()-1-prio][index-1]
-            if slot[slotIndex].file.count >= 1 && needy != -1:
-                needy += 1
-        if needy == -1 || needy == 0:
-            continue
-        for index in range(prioLists[prioLists.size()-1-prio].size()):
-            var slotIndex = prioLists[prioLists.size()-1-prio][index]
-            if slot[slotIndex].file.count < 1:
-                slot[slotIndex].progress = 0
-                continue
-            slot[slotIndex].progress += (upload.count / needy) * delta
-            if slot[slotIndex].progress >= slot[slotIndex].goal:
-                slot[slotIndex].multiplier = 1.0
-                for i: String in slot[slotIndex].multipliers:
-                    slot[slotIndex].multiplier *= Attributes.get_attribute(i)
-                var count: float = slot[slotIndex].file.pop(floorf(slot[slotIndex].progress / slot[slotIndex].goal))
-                var value: float = count * slot[slotIndex].base_value * slot[slotIndex].multiplier
-                var infected: float = count * slot[slotIndex].base_infection * Attributes.get_attribute("infection_multiplier")
-                result.add(value)
-                infections.add(infected)
-                if result.resource == "money":
-                    Globals.max_money += value
-                    Globals.stats.max_money += value
-                Globals.stats.uploads += count
                 
-                Signals.uploaded.emit(slot[slotIndex].file, count)
-                slot[slotIndex].progress = fmod(slot[slotIndex].progress, slot[slotIndex].goal)
-                audio_player.play()
-                if is_processing():
-                    result.animate_icon_in()
-                    infections.animate_icon_in()
-        needy = -1
-                        
-    infections.production = sumInfection
-    result.production = sum
+    pps()
+    process_upload(delta)
 
 
 func update_type() -> void :
@@ -210,7 +139,6 @@ func update_type() -> void :
         ### $PanelContainer / MainContainer / Progress / ProgressContainer / SizeLabel.text = Utils.print_metric(slot[i].goal, false) + "b"
         slot[i].progress_label.get_parent().get_node("SizeLabel").text = Utils.print_metric(slot[i].goal, false) + "b"
 
-    
 func _on_file_resource_set_index(index: int) -> void:
     slot[index].progress = 0
     if !slot[index].file.resource.is_empty():
@@ -218,8 +146,6 @@ func _on_file_resource_set_index(index: int) -> void:
 
     update_type()
     
-
-
 func _on_upload_size_changed() -> void :
     update_type()
     
@@ -239,7 +165,6 @@ func update_visible_inputs() -> void :
         else:
             slot[index+1].set_Visible(true)
 
-
 func save() -> Dictionary:
     progressListForSave.resize(0)
     for index in range(slot.size()-1):
@@ -254,6 +179,137 @@ func save() -> Dictionary:
         "progressListForSave":progressListForSave,
     })
 
-
 func _on_file_connection_in_set() -> void:
     update_visible_inputs()
+
+    
+#sets the production per second
+func pps() -> void:
+    var demand: Array
+    var supply = upload.count
+    var remainingSupply = supply
+    var infection = 0
+    var production = 0
+    var percent:float
+    
+    if (supply == 0 || supply == null) && upload.get_child(0).get_child(1).text != "0.00bps":
+        return
+    
+    demand.resize(prioLists.size())
+    for prio in range(prioLists.size() -1,-1,-1):   
+        if prioLists[prio].size() == 0:
+            continue
+            
+        for index in range(prioLists[prio].size()):
+            if !slot[prioLists[prio][index]].isVisible():
+                continue
+            if demand[prio] == null:
+                demand[prio] = 0
+            slot[prioLists[prio][index]].update()
+            demand[prio] = demand[prio] + slot[prioLists[prio][index]].demandWhenEmpty
+            
+        if demand[prio] <= remainingSupply:
+            remainingSupply -= demand[prio]
+            percent = 1
+        else:
+            percent = remainingSupply / demand[prio]
+            remainingSupply = 0
+        
+        for index in range(prioLists[prio].size()):
+            var slotIndex = prioLists[prio][index]
+            production += slot[slotIndex].base_value * slot[slotIndex].file.production * percent  * slot[slotIndex].multiplier
+            infection += slot[slotIndex].base_infection * slot[slotIndex].file.production * percent  * slot[slotIndex].multiplier
+            
+        if remainingSupply <= 0:
+            break
+    
+    
+    infections.production = infection
+    result.production = production
+    
+func process_upload(delta) -> void:
+    var demand: Array
+    var supply = upload.count * delta
+    var remainingSupply = supply
+    for prio in range(prioLists.size()-1,-1,-1):
+        var needy = 0
+        demand.resize(prioLists[prio].size())
+        for index in range(prioLists[prio].size()):
+            var slotIndex = prioLists[prio][index]
+            slot[slotIndex].update()
+            if (slot[slotIndex].minCount >= slot[slotIndex].file.count):
+                demand[index]=0
+                continue
+            demand[index] = slot[slotIndex].file.count * slot[slotIndex].goal
+            needy += 1
+            if demand[index] == null:
+                demand[index] = 0
+        
+        if needy == 0 || needy == null:
+            continue
+        
+        var demandSum = 0
+        for n in range(demand.size()):
+            demandSum += demand[n]
+            
+        var percent = 1
+        if demandSum > remainingSupply:
+            percent = remainingSupply / demandSum
+            
+        for index in range(prioLists[prio].size()):
+            var slotIndex = prioLists[prio][index]
+            var _slot = slot[slotIndex]
+            if (_slot.minCount >= _slot.file.count):
+                continue
+                
+            _slot.progress += demand[index] * percent
+            if _slot.progress > _slot.goal:
+                _slot.multiplier = 1.0
+                for i: String in _slot.multipliers:
+                    _slot.multiplier *= Attributes.get_attribute(i)
+                var count: float = _slot.file.pop(floorf(_slot.progress / _slot.goal))
+                var value: float = count * _slot.base_value * _slot.multiplier
+                var infected: float = count * _slot.base_infection * Attributes.get_attribute("infection_multiplier")
+                result.add(value)
+                infections.add(infected)
+                if result.resource == "money":
+                    Globals.max_money += value
+                    Globals.stats.max_money += value
+                Globals.stats.uploads += count
+                
+                Signals.uploaded.emit(_slot.file, count)
+                _slot.progress = fmod(_slot.progress, _slot.goal)
+                audio_player.play()
+                if is_processing():
+                    result.animate_icon_in()
+                    infections.animate_icon_in()
+            
+        remainingSupply -= demandSum
+        if remainingSupply < 1:
+            remainingSupply = 0
+            break
+    
+#region OutDated
+# Returns the contents of the priority list in the order Max -> Min.
+func prioOrder() -> Array:
+    if prioLists.size() == 0:
+        return []
+    var array: Array
+    for prioIndex in range(prioLists.size()-1,-1,-1):
+        if prioLists[prioIndex].size() == 0:
+            continue
+        for index in range(prioLists[prioIndex].size()-1):
+            array.append(prioLists[prioIndex][index])
+            
+    return array
+#endregion
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
