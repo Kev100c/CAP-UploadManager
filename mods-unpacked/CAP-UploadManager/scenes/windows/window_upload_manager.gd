@@ -97,6 +97,7 @@ func _process(delta: float) -> void :
     for i in range(slot.size()):
         slot[i].progress_bar.value = lerpf(slot[i].progress_bar.value,slot[i].progress / slot[i].goal,1.0 - exp(-50.0 * delta))
         slot[i].progress_label.text = Utils.print_metric(slot[i].progress,false)+ "b"
+    process(delta)
 
 
 func process(delta: float) -> void :
