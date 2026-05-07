@@ -69,6 +69,8 @@ func _add_to_data() -> void:
             "attributes":{
                 "limit": -1
             },
+            "attribute": "",
+            "attribute_cost": 0,
             "data": {},
             "guide": ""
         }

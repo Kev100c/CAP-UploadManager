@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://daugx6tpaus2c"]
+[gd_scene format=3 uid="uid://daugx6tpaus2c"]
 
 [ext_resource type="PackedScene" uid="uid://b46qouyu3lx2m" path="res://scenes/windows/window_base.tscn" id="1_heb0y"]
 [ext_resource type="Script" uid="uid://g5ctypb48c6j" path="res://mods-unpacked/CAP-UploadManager/scenes/windows/window_upload_manager.gd" id="2_rp5cj"]
@@ -9,64 +9,64 @@
 [ext_resource type="AudioStream" uid="uid://cnedscgai8lbp" path="res://audio/sfx/task_completed2.wav" id="6_6phws"]
 [ext_resource type="Script" uid="uid://d3m7n5how3k4b" path="res://scripts/node_player_2d.gd" id="7_eg7xe"]
 
-[node name="WindowBase" instance=ExtResource("1_heb0y")]
+[node name="WindowBase" unique_id=938231785 instance=ExtResource("1_heb0y")]
 offset_bottom = 346.0
 script = ExtResource("2_rp5cj")
 window = "upload_manager"
 
-[node name="Icon" parent="TitlePanel/TitleContainer" index="0"]
+[node name="Icon" parent="TitlePanel/TitleContainer" parent_id_path=PackedInt32Array(1176133871) index="0" unique_id=2015431448]
 texture = ExtResource("3_5ynrh")
 
-[node name="Title" parent="TitlePanel/TitleContainer" index="1"]
+[node name="Title" parent="TitlePanel/TitleContainer" parent_id_path=PackedInt32Array(1176133871) index="1" unique_id=570823129]
 text = "Upload Manager"
 
-[node name="MainContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
+[node name="MainContainer" type="VBoxContainer" parent="PanelContainer" parent_id_path=PackedInt32Array(1257840124) index="0" unique_id=875287108]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
 
-[node name="Upload" parent="PanelContainer/MainContainer" index="0" instance=ExtResource("4_yqgxw")]
+[node name="Upload" parent="PanelContainer/MainContainer" index="0" unique_id=260224599 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 default_resource = "upload_speed"
 limit = -1.0
 
-[node name="ResourceContainer" type="HBoxContainer" parent="PanelContainer/MainContainer" index="1"]
+[node name="ResourceContainer" type="HBoxContainer" parent="PanelContainer/MainContainer" index="1" unique_id=566606067]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer" index="0" unique_id=449828479 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer" index="1" unique_id=318622747 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress" type="VBoxContainer" parent="PanelContainer/MainContainer" index="2"]
+[node name="Progress" type="VBoxContainer" parent="PanelContainer/MainContainer" index="2" unique_id=567689047]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress" index="0" unique_id=162573217]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress/ProgressContainer" index="0" unique_id=203061292]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress/ProgressContainer" index="1" unique_id=1800351736]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress" index="1" unique_id=1240241254]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -75,43 +75,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer2" type="HBoxContainer" parent="PanelContainer/MainContainer" index="3"]
+[node name="ResourceContainer2" type="HBoxContainer" parent="PanelContainer/MainContainer" index="3" unique_id=815544933]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer2" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer2" index="0" unique_id=421837154 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer2" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer2" index="1" unique_id=833442783 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress2" type="VBoxContainer" parent="PanelContainer/MainContainer" index="4"]
+[node name="Progress2" type="VBoxContainer" parent="PanelContainer/MainContainer" index="4" unique_id=439915191]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress2" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress2" index="0" unique_id=1250281589]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress2/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress2/ProgressContainer" index="0" unique_id=1786721579]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress2/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress2/ProgressContainer" index="1" unique_id=875886445]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress2" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress2" index="1" unique_id=74702917]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -120,43 +120,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer3" type="HBoxContainer" parent="PanelContainer/MainContainer" index="5"]
+[node name="ResourceContainer3" type="HBoxContainer" parent="PanelContainer/MainContainer" index="5" unique_id=1728560996]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer3" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer3" index="0" unique_id=519390140 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer3" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer3" index="1" unique_id=15125981 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress3" type="VBoxContainer" parent="PanelContainer/MainContainer" index="6"]
+[node name="Progress3" type="VBoxContainer" parent="PanelContainer/MainContainer" index="6" unique_id=505883436]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress3" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress3" index="0" unique_id=262025993]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress3/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress3/ProgressContainer" index="0" unique_id=1948074314]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress3/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress3/ProgressContainer" index="1" unique_id=260865408]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress3" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress3" index="1" unique_id=151781490]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -165,43 +165,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer4" type="HBoxContainer" parent="PanelContainer/MainContainer" index="7"]
+[node name="ResourceContainer4" type="HBoxContainer" parent="PanelContainer/MainContainer" index="7" unique_id=1621711616]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer4" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer4" index="0" unique_id=449064144 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer4" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer4" index="1" unique_id=687188478 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress4" type="VBoxContainer" parent="PanelContainer/MainContainer" index="8"]
+[node name="Progress4" type="VBoxContainer" parent="PanelContainer/MainContainer" index="8" unique_id=727103571]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress4" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress4" index="0" unique_id=975985975]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress4/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress4/ProgressContainer" index="0" unique_id=49560614]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress4/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress4/ProgressContainer" index="1" unique_id=698472577]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress4" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress4" index="1" unique_id=1647855370]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -210,43 +210,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer5" type="HBoxContainer" parent="PanelContainer/MainContainer" index="9"]
+[node name="ResourceContainer5" type="HBoxContainer" parent="PanelContainer/MainContainer" index="9" unique_id=915801295]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer5" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer5" index="0" unique_id=2009087086 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer5" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer5" index="1" unique_id=759844810 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress5" type="VBoxContainer" parent="PanelContainer/MainContainer" index="10"]
+[node name="Progress5" type="VBoxContainer" parent="PanelContainer/MainContainer" index="10" unique_id=1062011151]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress5" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress5" index="0" unique_id=1556144604]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress5/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress5/ProgressContainer" index="0" unique_id=1600916053]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress5/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress5/ProgressContainer" index="1" unique_id=1864894505]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress5" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress5" index="1" unique_id=1151095744]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -255,43 +255,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer6" type="HBoxContainer" parent="PanelContainer/MainContainer" index="11"]
+[node name="ResourceContainer6" type="HBoxContainer" parent="PanelContainer/MainContainer" index="11" unique_id=1187488289]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer6" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer6" index="0" unique_id=327964896 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer6" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer6" index="1" unique_id=1385522025 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress6" type="VBoxContainer" parent="PanelContainer/MainContainer" index="12"]
+[node name="Progress6" type="VBoxContainer" parent="PanelContainer/MainContainer" index="12" unique_id=263928738]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress6" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress6" index="0" unique_id=503635940]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress6/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress6/ProgressContainer" index="0" unique_id=209167664]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress6/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress6/ProgressContainer" index="1" unique_id=705225943]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress6" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress6" index="1" unique_id=427412896]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -300,43 +300,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer7" type="HBoxContainer" parent="PanelContainer/MainContainer" index="13"]
+[node name="ResourceContainer7" type="HBoxContainer" parent="PanelContainer/MainContainer" index="13" unique_id=1194849674]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer7" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer7" index="0" unique_id=1103425816 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer7" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer7" index="1" unique_id=816696997 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress7" type="VBoxContainer" parent="PanelContainer/MainContainer" index="14"]
+[node name="Progress7" type="VBoxContainer" parent="PanelContainer/MainContainer" index="14" unique_id=1920875617]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress7" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress7" index="0" unique_id=1412498610]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress7/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress7/ProgressContainer" index="0" unique_id=1507282725]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress7/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress7/ProgressContainer" index="1" unique_id=387696928]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress7" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress7" index="1" unique_id=889864654]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -345,43 +345,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer8" type="HBoxContainer" parent="PanelContainer/MainContainer" index="15"]
+[node name="ResourceContainer8" type="HBoxContainer" parent="PanelContainer/MainContainer" index="15" unique_id=1546640832]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer8" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer8" index="0" unique_id=661358309 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer8" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer8" index="1" unique_id=1698710578 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress8" type="VBoxContainer" parent="PanelContainer/MainContainer" index="16"]
+[node name="Progress8" type="VBoxContainer" parent="PanelContainer/MainContainer" index="16" unique_id=1076589664]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress8" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress8" index="0" unique_id=483806233]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress8/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress8/ProgressContainer" index="0" unique_id=1745175734]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress8/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress8/ProgressContainer" index="1" unique_id=587726410]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress8" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress8" index="1" unique_id=705639406]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -390,43 +390,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer9" type="HBoxContainer" parent="PanelContainer/MainContainer" index="17"]
+[node name="ResourceContainer9" type="HBoxContainer" parent="PanelContainer/MainContainer" index="17" unique_id=2113448960]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer9" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer9" index="0" unique_id=281854822 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer9" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer9" index="1" unique_id=188125450 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress9" type="VBoxContainer" parent="PanelContainer/MainContainer" index="18"]
+[node name="Progress9" type="VBoxContainer" parent="PanelContainer/MainContainer" index="18" unique_id=1346462207]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress9" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress9" index="0" unique_id=117751781]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress9/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress9/ProgressContainer" index="0" unique_id=111773992]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress9/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress9/ProgressContainer" index="1" unique_id=2280824]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress9" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress9" index="1" unique_id=1091155186]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -435,43 +435,43 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="ResourceContainer10" type="HBoxContainer" parent="PanelContainer/MainContainer" index="19"]
+[node name="ResourceContainer10" type="HBoxContainer" parent="PanelContainer/MainContainer" index="19" unique_id=2001045205]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 5
 
-[node name="File" parent="PanelContainer/MainContainer/ResourceContainer10" index="0" instance=ExtResource("4_yqgxw")]
+[node name="File" parent="PanelContainer/MainContainer/ResourceContainer10" index="0" unique_id=1580481565 instance=ExtResource("4_yqgxw")]
 layout_mode = 2
 placeholder_name = "input_file"
 override_connector = "square"
 override_color = "white"
 
-[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer10" index="1" instance=ExtResource("5_5ynrh")]
+[node name="RatioButton" parent="PanelContainer/MainContainer/ResourceContainer10" index="1" unique_id=1599780339 instance=ExtResource("5_5ynrh")]
 layout_mode = 2
 max_value = 10.0
 
-[node name="Progress10" type="VBoxContainer" parent="PanelContainer/MainContainer" index="20"]
+[node name="Progress10" type="VBoxContainer" parent="PanelContainer/MainContainer" index="20" unique_id=1993802320]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress10" index="0"]
+[node name="ProgressContainer" type="HBoxContainer" parent="PanelContainer/MainContainer/Progress10" index="0" unique_id=1126976519]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress10/ProgressContainer" index="0"]
+[node name="ProgressLabel" type="Label" parent="PanelContainer/MainContainer/Progress10/ProgressContainer" index="0" unique_id=940923058]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0b"
 
-[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress10/ProgressContainer" index="1"]
+[node name="SizeLabel" type="Label" parent="PanelContainer/MainContainer/Progress10/ProgressContainer" index="1" unique_id=492204084]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "5b"
 horizontal_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress10" index="1"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MainContainer/Progress10" index="1" unique_id=926448104]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 mouse_filter = 2
@@ -480,14 +480,14 @@ max_value = 1.0
 step = 0.001
 show_percentage = false
 
-[node name="Result" parent="PanelContainer/MainContainer" index="21" instance=ExtResource("5_6r8fx")]
+[node name="Result" parent="PanelContainer/MainContainer" index="21" unique_id=98818456 instance=ExtResource("5_6r8fx")]
 layout_mode = 2
 
-[node name="Infections" parent="PanelContainer/MainContainer" index="22" instance=ExtResource("5_6r8fx")]
+[node name="Infections" parent="PanelContainer/MainContainer" index="22" unique_id=112038153 instance=ExtResource("5_6r8fx")]
 layout_mode = 2
 default_resource = "infected_computer"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3" unique_id=1666547117]
 stream = ExtResource("6_6phws")
 max_distance = 1200.0
 max_polyphony = 5

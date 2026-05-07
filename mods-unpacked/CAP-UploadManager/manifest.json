@@ -7,7 +7,7 @@
 				"CAP"
 			],
 			"compatible_game_version": [
-				"2.0.21"
+				"2.2.7"
 			],
 			"compatible_mod_loader_version": [
 				"7.0.0"
@@ -25,6 +25,6 @@
 	},
 	"name": "UploadManager",
 	"namespace": "CAP",
-	"version_number": "1.0.1",
+	"version_number": "1.0.2",
 	"website_url": "https://github.com/Kev100c/CAP-UploadManager"
 }
